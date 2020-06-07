@@ -21,7 +21,7 @@ const changeAllClassNames = () => {
   $("li").each(function(){
     $(this).addClass("fruit");
   })
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -134,7 +134,7 @@ const sortPeople = (arr) => {
     })
   }
   return arr
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -220,7 +220,7 @@ Without altering the html, write a function named addPearClass that uses jQuery 
 
 const addPearClass = () => {
   // Solution code here...
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
