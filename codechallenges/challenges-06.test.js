@@ -77,7 +77,7 @@ const templatingWithMustache = () => characters.map(element => Mustache.render($
 
    
    
-
+// hjh
     // Solution code here...
 //   };
 
