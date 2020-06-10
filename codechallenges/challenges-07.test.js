@@ -23,7 +23,7 @@ const addTea = () => $('ul').append('<li>tea</li>');
 // let addTea = [];
 // $("ul li").each(function() { addTea.push($(this).text()) });
 // };
-
+// jhkjhjkl
 // describe('Testing challenge 1', () => {
 //     test('It should add tea to the list', () => {
 //       addTea();
