@@ -175,7 +175,6 @@ const gruffaloCrumble = {
   
       let firstSlice = ingredient.slice(ingredient.indexOf(' ') + 1);
       let seccondSlice = firstSlice.slice(firstSlice.indexOf(' ') + 1);
-  
       result.push(seccondSlice);
   
     });
