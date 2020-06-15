@@ -15,6 +15,21 @@ const createServer = () => {
   });
   return server;
 };
+// hjhjkjk
+app.get('/hello', (request, response) => {
+response.send('I am bananas');
+});
+app.get('/aboutme', (request,response) => {
+response.send('Im a Kamit Satkeev');
+});
+app.get('/favoritefoods', (request,response) => {
+  response.send()
+})
+   
+  // turning on the server and consoling logging the port
+  app.listen(PORT, () => {
+    console.log(`listening on ${PORT}`);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
