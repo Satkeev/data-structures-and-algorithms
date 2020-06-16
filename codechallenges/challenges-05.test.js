@@ -107,10 +107,10 @@ const howMuchPencil = (str) => {
   
     return result;
   };
-// kjkjl
-// ghjghjj
+
+
 // /* ------------------------------------------------------------------------------------------------
-CHALLENGE 3
+// CHALLENGE 3
 
 // // Write a function name wordsToCharList that, given a string as input, returns a new array where every element is a character of the input string.
 
