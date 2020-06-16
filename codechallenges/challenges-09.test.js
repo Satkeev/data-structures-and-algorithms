@@ -260,16 +260,10 @@ Write a function named reversedString that takes in a string and returns a strin
 
 Note: You must use reduce for this challenge. You may not use the built-in .reverse() string method.
 ------------------------------------------------------------------------------------------------ */
+const reversedString = (str) => {
+  return str.split('').reduce((acc, value, idx) => str[idx] + acc, '');
+}
 
-const reversedString = (arr) => {
-  // Solution code here...
-  const realArr = arr.split('');
-  const result = realArr.reduce((acc, cur) => {
-    acc.unshift(cur);
-    return acc;
-  }, []);
-  return result.join('');
-};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
