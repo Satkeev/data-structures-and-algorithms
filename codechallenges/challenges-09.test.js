@@ -188,7 +188,7 @@ const countNumberOfElements = (arr) => {
         return total;
       }; 
 
-
+// hjkjhkjlkjlklk
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
