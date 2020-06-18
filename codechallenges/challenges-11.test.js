@@ -1,19 +1,21 @@
 'use strict';
 
-/* ------------------------------------------------------------------------------------------------
-CHALLENGE 1 - Review
+// ------------------------------------------------------------------------------------------------
+// CHALLENGE 1 - Review
 
-Write a function that iterates over an array of people objects 
-and creates a new list of each person's full name using the array method 'map'.
-Each object will have the shape {firstName:string, lastName:string}
-E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
-should convert to ["Jane Doe", "James Bond"]
-Note the space in between first and last names.
-You can assume that neither firstName nor lastName will be blank
------------------------------------------------------------------------------------------------- */
-const toLastNames = people.map(en => {
-  return (en.firstName + ' ' + en.lastName);
- });
+// Write a function that iterates over an array of people objects 
+// and creates a new list of each person's full name using the array method 'map'.
+// Each object will have the shape {firstName:string, lastName:string}
+// E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
+// should convert to ["Jane Doe", "James Bond"]
+// Note the space in between first and last names.
+// You can assume that neither firstName nor lastName will be blan
+
+const toLastNames = people => {
+  let regex = /[a-z]/gm;
+  return regex.test(people);
+};
+ 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
