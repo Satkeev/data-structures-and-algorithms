@@ -12,6 +12,7 @@ public class ArrayShiftTest {
         //define random n
         int[] outputArray = classUnderTest.ShiftArray(array, n);
         int middle = outputArray.length/2;
+        //check equal
         assertEquals(n, outputArray[middle]);
 
     }
