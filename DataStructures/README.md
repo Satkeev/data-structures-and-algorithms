@@ -6,6 +6,7 @@ before the Node that contains the given value.
 
 ##Add an insertAfter method to  LinkedList class that takes in a value and newValue, and inserts a new Node after
  the Node that contains the given value.
+![] (https://github.com/Satkeev/data-structures-and-algorithms/blob/inheritance/DataStructures/assets/LinkedList2.png)
 
 
 Challenge 07
