@@ -89,5 +89,10 @@ public class LinkedListTest {
         thrown.expect(IndexOutOfBoundsException.class);
         test.findKFromEnd(12);
     }
+    @Test
+    public void testMergeListTwoNullLists() {
+        LinkedList test2 = new LinkedList();
 
+        assertNull("Should give back a null value if both lists are empty",LinkedList.mergeLists(test, test2));
+    }
 }

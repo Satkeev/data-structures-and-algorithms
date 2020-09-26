@@ -3,6 +3,14 @@ package datastructure.linkedList;
 
 public class LinkedList {
 
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
     class Node {
         public int value;
         int num;
@@ -126,6 +134,34 @@ public class LinkedList {
         }
         throw new IndexOutOfBoundsException("Value entered is greater than " + "total linked list length");
     }
+
+    //merge two lists
+    public static Node zipLists(LinkedList list1, LinkedList list2) {
+        Node current = list1.head;
+        Node insert = list2.head;
+        int counter  = 0;
+
+        if (current == null) {
+            return list2.head;
+        }
+
+        while(current != null && insert != null) {
+            if (counter % 2 == 0) {
+                list1.insertAfter(current.value, insert.value);
+                insert = insert.next;
+            }
+            current = current.next;
+            counter++;
+        }
+        if (current == null && insert != null) {
+            while (insert != null) {
+                list1.append(insert.value);
+                insert = insert.next;
+            }
+        }
+        return list1.head;
+    }
+
 }
 
 
