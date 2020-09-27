@@ -7,3 +7,4 @@ before the Node that contains the given value.
 ##Add an insertAfter method to  LinkedList class that takes in a value and newValue, and inserts a new Node after the Node that contains the given value.
 
 
+https://docs.google.com/presentation/d/1T1dBz_CorvLjLqL0DdEAwxOZA9RRlfkiwuMFuN7Y6Qw/edit#slide=id.p
