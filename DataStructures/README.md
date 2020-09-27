@@ -6,6 +6,8 @@ before the Node that contains the given value.
 
 ##Add an insertAfter method to  LinkedList class that takes in a value and newValue, and inserts a new Node after
  the Node that contains the given value.
+ 
+![](https://github.com/Satkeev/data-structures-and-algorithms/blob/inheritance/DataStructures/assets/LinkedList2.png)
 
 
 Challenge 07
@@ -15,4 +17,4 @@ Write a method for your LinkedList class that takes in an integer k and returns 
 
 ##Approach and Efficiency
 The approach for this method was to start by looking at the head of the list, and then look k nodes forward from there and see if the next value of that node is null. If that node k away from the current has a next value of null then it will return the value from the current node. If not, then the current node will be set to the next in the list until either the proper node is found or the function has to throw an error due to being out of the bounds of the list. The time of this method is O(n) and the space is O(1).
-
+![](https://github.com/Satkeev/data-structures-and-algorithms/blob/inheritance/DataStructures/assets/Screenshot%202020-09-22%20213251.png)
