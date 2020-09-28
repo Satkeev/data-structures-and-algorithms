@@ -1,7 +1,9 @@
 package datastructure.linkedList;
 
 
+
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,6 +14,7 @@ import static org.junit.Assert.*;
 public class LinkedListTest {
 
     LinkedList test = new LinkedList();
+    private ExpectedException thrown;
 
 
     @Test
@@ -44,12 +47,26 @@ public class LinkedListTest {
         test.insert(0);
         test.insert(1);
         test.insert(2);
-        test.insert(3);
-        test.insert(4);
-
 
         assertTrue("Will return true even in if the value is the first in the list", test.includes(3));
         assertTrue("Will return true even in if the value is the last in the list", test.includes(0));
-        assertFalse("should still return false for a value not in the list", test.includes(4));
+        assertFalse("should still return false for a value not in the list", test.includes(2));
     }
+    @Test
+    public void testFindKFromEnd() {
+        test.insert(0);
+        test.insert(1);
+        test.insert(2);
+        test.insert(3);
+        test.insert(4);
+        test.insert(5);
+
+
+        assertEquals("Searching for the value 1 from the end should return 1", 1, test.findKFromEnd(1));
+        assertEquals("Should give the last value if 0 is entered", 0, test.findKFromEnd(0));
+        assertEquals("Should also be able to give the value farthest away from the end", 5, test.findKFromEnd(5));
+    }
+
+
+
 }

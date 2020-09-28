@@ -71,8 +71,7 @@ public class LinkedList {
         }
 
     }
-    //insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
-
+    //insertBefore
     public void insertBefore(int value, int newValue) {
         if (!includes(value)) {
             return;
@@ -92,7 +91,7 @@ public class LinkedList {
         }
     }
 
-    //Will add a new Node to the list right after the Node with the value passed in
+    //insert after
     public void insertAfter(int value, int newValue) {
         if (!includes(value)) {
             return;
@@ -108,5 +107,25 @@ public class LinkedList {
             current = current.next;
         }
     }
+    //from end
+    public int findKFromEnd(int k) throws IndexOutOfBoundsException {
+        Node current = this.head;
+
+        while (current !=null) {
+            Node kTm = current;
+            for (int i = 0; i < k; i++) {
+                if(kTm.next == null && i != k-1) {
+                    throw new IndexOutOfBoundsException("Value entered is greater" + " than total linked list length");
+                }
+                kTm = kTm.next;
+            }
+            if (kTm.next == null) {
+                return current.value;
+            }
+            current = current.next;
+        }
+        throw new IndexOutOfBoundsException("Value entered is greater than " + "total linked list length");
+    }
 }
+
 
