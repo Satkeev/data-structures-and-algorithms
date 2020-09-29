@@ -9,12 +9,12 @@ public class PseudoQueue<Num> {
         public Stack<Num> stack2 = new Stack<>();
         public Node front;
 
-
+//declare empty stack
         public PseudoQueue() {
             this.front = null;
 
         }
-
+//enqueue method
         public Num enqueue(Num value) {
             Num current = this.stack1.pop();
 
@@ -30,7 +30,7 @@ public class PseudoQueue<Num> {
                 this.stack1.push(value);
                 current = this.stack2.pop();
             }
-
+//dequeue method
             while (current != null) {
                 this.stack1.push(current);
                 current = this.stack2.pop();
