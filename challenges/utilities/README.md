@@ -1,0 +1,5 @@
+#### Challenge
+Create a class called AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach. The shelter should have an enqueue(animal) method that will add either a cat or dog object to the shelter. The shelter should also have a dequeue(pref) method that takes a preference of either cat or dog and returns either a cat or dog based on that preference.
+
+#### Approach and Efficiency
+The approach for this challenge was to utilize two queues within the AnimalShelter class, one queue of dogs and one queue of cats. Enqueue checks to see what type of animal is being enqueued and will then call the enqueue method for the appropriate animal queue. The dequeue works in a similar way, checking the preference string entered and then dequeueing an animal from the appropriate queue and returning that animal. This allows for a time and space efficiency of O(1) for these methods, as they are utilizing the already O(1) methods on the internal queues.
