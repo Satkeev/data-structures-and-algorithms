@@ -15,8 +15,6 @@ public class Node<T> {
         this.setRight(null);
     }
 
-
-
     public T getValue() {
         return value;
     }
