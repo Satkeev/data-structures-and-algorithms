@@ -19,7 +19,7 @@ public class Tree<T extends Comparable<T>> {
             // Calls the recursive helper method
             System.out.println(getMaxHelper(this.getRoot()));
     }
-
+//getMaxHelper
     public T getMaxHelper(Node<T> node) {
         Node<T> leftNode = node.getLeft();
         Node<T> rightNode = node.getRight();
@@ -47,7 +47,7 @@ public class Tree<T extends Comparable<T>> {
 
         return (currentValue.compareTo(bigger) < 0) ? bigger : currentValue;
     }
-
+//breadthFirst
     public String breadthFirst() {
         StringBuilder output = new StringBuilder();
         Node<T> tempTreeNode;
@@ -67,7 +67,7 @@ public class Tree<T extends Comparable<T>> {
         }
         return output.toString().trim();
     }
-
+//preOrder
     public ArrayList<T> preOrder() {
         ArrayList<T> outputArray = new ArrayList<>();
         if (this.getRoot() != null)
@@ -75,7 +75,8 @@ public class Tree<T extends Comparable<T>> {
         return outputArray;
     }
 
-    public ArrayList<T> inOrder() {
+  //inOrder
+        public ArrayList<T> inOrder() {
         ArrayList<T> outputArray = new ArrayList<>();
         if (this.getRoot() != null)
             inOrderHelper(this.getRoot(), outputArray);
@@ -88,7 +89,7 @@ public class Tree<T extends Comparable<T>> {
             postOrderHelper(this.getRoot(), outputArray);
         return outputArray;
     }
-
+//preOrderHelper
     private void preOrderHelper(Node<T> tree, ArrayList<T> outputArray) {
         outputArray.add(tree.getValue());
 
@@ -98,7 +99,7 @@ public class Tree<T extends Comparable<T>> {
         if (tree.getRight() != null)
             this.preOrderHelper(tree.getRight(), outputArray);
     }
-
+//inOrderHelper
     private void inOrderHelper(Node<T> tree, ArrayList<T> outputArray) {
         if (tree.getLeft() != null)
             this.inOrderHelper(tree.getLeft(), outputArray);

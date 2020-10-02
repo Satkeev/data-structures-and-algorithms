@@ -3,25 +3,24 @@ package tree;
 
 public class BinarySearchTree<T extends Comparable<T>> extends Tree<T> {
     public void add(T value) {
-        // Do not add the new value if it already exists in the BST
-        // Don't throw an error (my choice)
-        if (this.contains(value))
+        // No add the new value if it already exists in the BinSearchTree
+               if (this.contains(value))
             return;
 
         Node<T> newNode = new Node<>(value);
         Node<T> root = this.getRoot();
 
         if (root == null)
-            // Add the new tree node if the BST is empty to begin with
+            // Next step is add the new tree node if the BST is empty to begin with
             this.setRoot(newNode);
         else
-            // Execute the recursive addHelper method if the BST is not empty
+            // Recursive addHelper method if the BST is not empty
             this.addHelper(root, newNode);
     }
 
     private void addHelper(Node<T> treeNode, Node<T> newNode) {
-        // Magic happens here with the compareTo method.
-        // It is needed for comparing generics which is why the T type for the class signature extends Comparable<T>
+        // compareTo method.
+        // for comparing generics which is why the T type for the class signature extends Comparable<T>
         if (newNode.getValue().compareTo(treeNode.getValue()) < 0) {
             if (treeNode.getLeft() == null)
                 treeNode.setLeft(newNode);
@@ -34,7 +33,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends Tree<T> {
                 this.addHelper(treeNode.getRight(), newNode);
         }
     }
-
+//contains
     public boolean contains(T value) {
         return this.containsHelper(this.getRoot(), value);
     }
@@ -42,7 +41,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends Tree<T> {
     private boolean containsHelper(Node<T> treeNode, T value) {
         if (treeNode == null)
             return false;
-
+//getValue
         if (treeNode.getValue().equals(value))
             return true;
 
