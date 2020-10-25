@@ -1,7 +1,8 @@
-package utilities;
-
+package challenges.utilities;
 public class AnimalShelter {
 
-        StackGeneric animalShelter = new StackGeneric();
-    }
+    utilities.StackGeneric animalShelter = new utilities.StackGeneric();
+}
+
+
 
