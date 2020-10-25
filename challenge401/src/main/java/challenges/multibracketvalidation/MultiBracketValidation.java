@@ -1,4 +1,4 @@
-package multibracketvalidation;
+package challenges.multibracketvalidation;
 
 
 import java.util.Stack;
