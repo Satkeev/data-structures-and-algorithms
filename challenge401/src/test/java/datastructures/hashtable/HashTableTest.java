@@ -9,7 +9,7 @@ public class HashTableTest {
         assertEquals(6, ht.size());
     }
 
-    
+
     void testAdd() {
         ht.add("Value 1", 1);
         ht.add("Value 2", 2);
