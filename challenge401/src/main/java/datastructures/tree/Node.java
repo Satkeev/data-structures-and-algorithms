@@ -1,37 +1,31 @@
-package tree;
+package datastructures.tree;
 
-//Create class Node with T type parameter
-public class Node<T> {
-    private T value;
-    private Node<T> left;
-    private Node<T> right;
-    /*
-     * Getters and Setters Section
-     */
-    public Node(T value) {
-        // No setter for value because set only once
+public class Node {
+    int value;
+    Node left = null;
+    Node right = null;
+
+    public Node(int value) {
         this.value = value;
-        this.setLeft(null);
-        this.setRight(null);
     }
 
-    public T getValue() {
+    public int getValue() {
         return value;
     }
 
-    public Node<T> getLeft() {
+    public Node getLeft() {
         return left;
     }
 
-    public void setLeft(Node<T> left) {
+    public void setLeft(Node left) {
         this.left = left;
     }
 
-    public Node<T> getRight() {
+    public Node getRight() {
         return right;
     }
 
-    public void setRight(Node<T> right) {
+    public void setRight(Node right) {
         this.right = right;
     }
 }
