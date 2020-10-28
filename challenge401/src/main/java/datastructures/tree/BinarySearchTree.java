@@ -1,12 +1,12 @@
 package datastructures.tree;
 
-public class BinarySearch extends BinaryTree {
+public class BinarySearchTree extends BinaryTree {
 
-    public BinarySearch(Node root) {
+    public BinarySearchTree(Node root) {
         super(root);
     }
 
-    public BinarySearch() { super(); }
+    public BinarySearchTree() { super(); }
 
     public void add(int value, Node current) throws Exception {
         // edge case for empty tree

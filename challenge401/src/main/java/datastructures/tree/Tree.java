@@ -1,7 +1,5 @@
-package tree;
+package datastructures.tree;
 
-
-import datastructures.tree.Node;
 
 public class Tree {
     public Node root = null;

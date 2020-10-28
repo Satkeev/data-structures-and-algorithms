@@ -1,143 +1,163 @@
-package linkedlist;
-
+package datastructures.linkedlist;
 public class LinkedList {
+
     public Node head = null;
-    public Node tail = null;
-    public Node next = null;
-    private Object Exception;
 
-    public static void main(String[] args) throws Exception {
-        LinkedList list = new LinkedList();
-        LinkedList list2 = new LinkedList();
-        list.append(2);
-        list.append(5);
-        list2.append(32);
-        list2.append(23);
-        list.insertBefore(5, 10);
-        list.insertAfter(10, 55);
-        list2.insertBefore(23, 45);
-        list2.insertAfter(32, 65);
-        list.findKthFromEnd(2);
-        list.findKthFromEnd(0);
-        System.out.println(list);
-        System.out.println(list2);
-        System.out.println(zipLists(list, list2));
-    }
-
-    public void addToFront(int newValue) {
-        Node newNode = new Node(newValue);
-        if (this.head == null) {
-            this.head = newNode;
-            this.tail = this.head;
-        } else {
-            newNode.next = this.head;
-            this.head = newNode;
+    public void insert(int value) {
+        Node newNode = new Node(value);
+        if (this.head != null) {
+            newNode.setNext(this.head);
         }
-    }
-
-
-    //Helped with writing the method: https://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/
-    public void append(int newVal) {
-        Node newNode = new Node(newVal);
-        if (this.head == null) {
-            this.head = newNode;
-        } else {
-            newNode.next = null;
-            Node last = this.head;
-            while (last.next != null) {
-                last = last.next;
-            }
-            last.next = newNode;
-        }
-
-    }
-
-    // Helped with writing the method: https://stackoverflow.com/questions/6824067/manual-linked-list-insert-before-method
-    public void insertBefore(int val, int newVal) {
-        Node curr = this.head;
-
-        while(curr.next != null) {
-            if (curr.next.value == val) {
-                Node newNode = new Node(newVal);
-                newNode.next = curr.next;
-                curr.next = newNode;
-                return;
-            }
-            curr = curr.next;
-        }
-    }
-
-    // Helped me understand to change my while loop from curr.next to just curr: https://stackoverflow.com/questions/37137350/linkedlist-insert-after-node/37138082
-    public void insertAfter(int prev, int newValue) {
-        Node curr = this.head;
-
-        while (curr != null) {
-            if (curr.value == prev) {
-                Node newNode = new Node(newValue);
-                newNode.next = curr.next;
-                curr.next = newNode;
-                return;
-            }
-            curr = curr.next;
-        }
-    }
-
-    // Used the website to construct method https://www.geeksforgeeks.org/nth-node-from-the-end-of-a-linked-list/
-    public int findKthFromEnd(int k) throws Exception {
-        int length = 0;
-        Node temp = this.head;
-
-        while(temp != null) {
-            temp = temp.next;
-            length++;
-        }
-
-        if(length > k) {
-            temp = this.head;
-            for (int i = 1; i < length - k ; i++) {
-                temp = temp.next;
-
-            }
-        } else {
-            throw new Exception("Your link list is shorter than your argument value");
-        }
-        return temp.value;
-    }
-
-    // Used the website for help https://www.techiedelight.com/merge-alternate-nodes-two-linked-lists/
-    public static LinkedList zipLists(LinkedList one, LinkedList two) {
-        if(one == null) {
-            return two;
-        } else if (two == null) {
-            return one;
-        }
-
-        Node head1 = one.head;
-        Node head2 = two.head;
-        Node temp = head1.next;
-        Node temp2 = head2.next;
-        LinkedList shadowClone = new LinkedList();
-        shadowClone.append(head1.value);
-        shadowClone.append(head2.value);
-        System.out.println(shadowClone);
-
-        while(temp != null && temp2 != null) {
-            shadowClone.append(temp.value);
-            temp = temp.next;
-            shadowClone.append(temp2.value);
-            temp2 = temp2.next;
-        }
-        return shadowClone;
+        this.head = newNode;
     }
 
     public String toString() {
-        return toString(this.head);
+        if (this.head == null) {
+            return "NULL";
+        }
+        String output = String.format("{%s}", this.head.toString());
+        Node nextNode = this.head.getNext();
+        while (nextNode != null) {
+            output += String.format(" -> {%s}", nextNode.toString());
+            nextNode = nextNode.getNext();
+        }
+        output += " -> NULL";
+        return output;
     }
 
-    public String toString(Node current) {
-        if(current == null) {
-            return "null";
+    public boolean includes(int value) {
+        if (this.head == null) {
+            return false;
         }
-        return String.format("{%d} -> %s", current.value, toString(current.next));
+        if (this.head.getValue() == value) {
+            return true;
+        }
+        Node nextNode = this.head.getNext();
+        while (nextNode != null) {
+            if (nextNode.getValue() == value) {
+                return true;
+            }
+            nextNode = nextNode.getNext();
+        }
+        return false;
+    }
+
+    public void append(int newValue) {
+        if (this.head == null) {
+            head = new Node(newValue);
+            return;
+        }
+
+        Node nextToCheck = head;
+
+        do {
+            if (nextToCheck.getNext() == null) {
+                Node newNode = new Node(newValue);
+                nextToCheck.setNext(newNode);
+                break;
+            } else {
+                nextToCheck = nextToCheck.getNext();
+            }
+        } while (nextToCheck != null);
+    }
+
+    public void insertBefore(int searchValue, int newValue) throws Exception {
+        if (head.getValue() == searchValue) {
+            insert(newValue);
+        } else {
+            Node previousChecked = head;
+            do {
+                if (previousChecked.getNext() == null) {
+                    throw new Exception("Value not found.");
+                }
+                if (previousChecked.getNext().getValue() == searchValue) {
+                    Node newNode = new Node(newValue);
+                    newNode.setNext(previousChecked.getNext());
+                    previousChecked.setNext(newNode);
+                    return;
+                } else {
+                    previousChecked = previousChecked.getNext();
+                }
+            } while (previousChecked != null);
+
+        }
+    }
+
+    public void insertAfter(int searchValue, int newValue) throws Exception {
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.getValue() == searchValue) {
+                Node newNode = new Node(newValue);
+                newNode.setNext(currentNode.getNext());
+                currentNode.setNext(newNode);
+                return;
+            }
+            currentNode = currentNode.getNext();
+        }
+        throw new Exception("Value not found.");
+    }
+
+    public int kthFromEnd(int k) throws Exception {
+        if (this.head == null) {
+            throw new Exception("The linked list is empty");
+        }
+        if (k < 0) {
+            throw new Exception("input must be greater than or equal to 0");
+        }
+        Node node = this.head;
+        int listSize = 0;
+        int returnValue = node.getValue();
+
+        while (node != null) {
+            node = node.getNext();
+            listSize++;
+        }
+
+        if (listSize <= k) {
+            throw new NullPointerException("k input is out of bounds");
+        }
+        node = this.head;
+        for (int i = 0; i < listSize - k; i++) {
+            returnValue = node.getValue();
+            node = node.getNext();
+        }
+
+        return returnValue;
+    }
+
+    public static LinkedList zipLists(LinkedList ll1, LinkedList ll2) throws Exception {
+        if (ll1.head == null && ll2.head == null) {
+            throw new Exception("At least one linked list must contain a value");
+        }
+        if (ll1.head == null) {
+            return ll2;
+        }
+        if (ll2.head == null) {
+            return ll1;
+        }
+
+        Node current1 = ll1.head;
+        Node current2 = ll2.head;
+        Node temp1 = current1.getNext();
+        Node temp2 = current2.getNext();
+
+        while (temp1 != null && temp2 != null) {
+            current1.setNext(current2);
+            current2.setNext(temp1);
+            current1 = temp1;
+            current2 = temp2;
+            temp1 = temp1.getNext();
+            temp2 = temp2.getNext();
+        }
+
+        current1.setNext(current2);
+        if (temp1 != null) {
+            current2.setNext(temp1);
+        }
+
+        return ll1;
     }
 }
+
+
+
