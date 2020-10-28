@@ -1,6 +1,7 @@
 package datastructures.tree;
 
 public class Node {
+    public Node next;
     int value;
     Node left = null;
     Node right = null;
