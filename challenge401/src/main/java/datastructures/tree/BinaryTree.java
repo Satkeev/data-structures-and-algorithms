@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinaryTree extends tree.Tree {
+public class BinaryTree extends Tree {
     public BinaryTree(Node root) {
         super(root);
     }
@@ -89,4 +89,3 @@ public class BinaryTree extends tree.Tree {
         _addBreadthFirst(value, queue.removeLast(), queue);
     }
 }
-
