@@ -2,6 +2,7 @@ package datastructures.tree;
 
 public class Node {
     public Node next;
+    public Object neighbors;
     int value;
     Node left = null;
     Node right = null;
