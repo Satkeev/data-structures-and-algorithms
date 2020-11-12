@@ -1,23 +1,28 @@
 package challenges;
 
-import java.util.Arrays;
-
 public class BinarySearch {
 
-        public int binarySearch(int[] arr, int a, int z, int n) {
-            if(a <= z) {
-                int mid = (a + z) / 2;
-                System.out.println(mid);
-                if (arr[mid] == n) {
-                    return mid;
-                }
-                if (arr[mid] > n) {
-                    return binarySearch(arr, a, mid - 1, n);
-                }
-                if (arr[mid] < n) {
-                    return binarySearch(arr, mid + 1, z, n);
-                }
+    public static int binarySearch(int[] inputArray, int searchKey) {
+        int start = 0;
+        int end = inputArray.length;
+        int mid;
+        while (start < end) {
+            mid = (start + end) / 2;
+            if (inputArray[mid] == searchKey) {
+                return mid;
+            } else if (inputArray[mid] > searchKey) {
+                end = mid;
+            } else {
+                start = mid + 1;
             }
+        }
+        if (start == inputArray.length) {
+            return -1;
+        }
+        if (inputArray[start] == searchKey) {
+            return start;
+        } else {
             return -1;
         }
     }
+        }
