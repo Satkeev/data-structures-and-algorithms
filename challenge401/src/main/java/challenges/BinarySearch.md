@@ -11,4 +11,4 @@ Fairly simple approach.
 Time: O(log(n))
 Space: O(1)  
 
-![](src/main/java/challenges/assets/Screenshot20%2020-11-2320%165151.png)
+![img](src/main/java/challenges/assets/Screenshot20%2020-11-2320%165151.png)
