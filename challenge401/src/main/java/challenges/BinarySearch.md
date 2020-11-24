@@ -13,8 +13,7 @@ Time: O(log(n))
 Space: O(1)   
 
 
+![](assets/Screenshot%202020-11-23%20165151.png) 
 
-
-![](src/main/java/challenges/assets/Screenshot%202020-11-23%20165151.png)
 
 
