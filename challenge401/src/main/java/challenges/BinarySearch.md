@@ -1,3 +1,4 @@
+
 Code Challenge 3
 Binary Search
 This search algorithm code challenge is used to further our understanding of Java syntax as well as introduce us to the idea of time and space complexity.
@@ -10,4 +11,6 @@ Fairly simple approach.
 
 Time: O(log(n))
 Space: O(1)
+
+
 ![](src/main/java/challenges/assets/Screenshot20%2020-11-2320%165151.png)
