@@ -42,7 +42,60 @@ public class LinkedList {
         }
         return false;
     }
+    public void append(int newValue) {
+        if (this.head == null) {
+            head = new Node(newValue);
+            return;
+        }
 
+        Node nextToCheck = head;
+
+        do {
+            if (nextToCheck.getNext() == null) {
+                Node newNode = new Node(newValue);
+                nextToCheck.setNext(newNode);
+                break;
+            } else {
+                nextToCheck = nextToCheck.getNext();
+            }
+        } while (nextToCheck != null);
+    }
+
+    public void insertBefore(int searchValue, int newValue) throws Exception {
+        if (head.getValue() == searchValue) {
+            insert(newValue);
+        } else {
+            Node previousChecked = head;
+            do {
+                if (previousChecked.getNext() == null) {
+                    throw new Exception("Value not found.");
+                }
+                if (previousChecked.getNext().getValue() == searchValue) {
+                    Node newNode = new Node(newValue);
+                    newNode.setNext(previousChecked.getNext());
+                    previousChecked.setNext(newNode);
+                    return;
+                } else {
+                    previousChecked = previousChecked.getNext();
+                }
+            } while (previousChecked != null);
+
+        }
+    }
+
+    public void insertAfter(int searchValue, int newValue) throws Exception {
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.getValue() == searchValue) {
+                Node newNode = new Node(newValue);
+                newNode.setNext(currentNode.getNext());
+                currentNode.setNext(newNode);
+                return;
+            }
+            currentNode = currentNode.getNext();
+        }
+        throw new Exception("Value not found.");
+    }
 
 }
 
