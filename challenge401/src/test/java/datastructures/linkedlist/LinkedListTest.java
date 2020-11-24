@@ -91,7 +91,7 @@ public class LinkedListTest {
     public void testZipLists() throws Exception {
         LinkedList ll1 = new LinkedList();
         LinkedList ll2 = new LinkedList();
-        
+
 
         ll1.insert(1);
         assertEquals("should return first list when second is empty", ll1, LinkedList.zipLists(ll1, ll2));
