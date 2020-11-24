@@ -2,6 +2,7 @@ package datastructures.linkedlist;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LinkedListTest {
     @Test public void testNewLinkedList() {
@@ -63,6 +64,21 @@ public class LinkedListTest {
         testList.insertAfter(6, 0);
         assertEquals("should now start include 6 after the first 5", "{5} -> {6} -> {0} -> {5} -> {5} -> {2} -> NULL", testList.toString());
     }
+    @Test public void testKthFromEnd() throws Exception {
+        LinkedList testList = new LinkedList();
+        testList.insert(4);
+        assertEquals("linked list of size 1", 4, testList.kthFromEnd(0));
+
+        testList.insert(3);
+        testList.insert(2);
+        testList.insert(1);
+        assertEquals("should return value of node k from end", 2, testList.kthFromEnd(2));
+
+        assertThrows(Exception.class, () -> testList.kthFromEnd(7));
+
+       
     }
+
+}
 
 
