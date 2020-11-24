@@ -1,7 +1,6 @@
 package challenges;
 
 public class BinarySearch {
-
     public static int binarySearch(int[] inputArray, int searchKey) {
         int start = 0;
         int end = inputArray.length;
@@ -25,4 +24,4 @@ public class BinarySearch {
             return -1;
         }
     }
-        }
+}
