@@ -1,4 +1,4 @@
-#### Code Challenge 14
+#### Code Challenge 15
 
 #### Trees
 Contains a BinaryTree, BinarySearchTree, and Node class. Each node has properties for its value, left child, and right child. A Tree is for just a collection of these nodes, while a BinarySearchTree will sort them to the left or right based on their value in comparison to the root.
