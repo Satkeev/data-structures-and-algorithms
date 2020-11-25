@@ -37,4 +37,3 @@ public ArrayList<GraphNode<T>> getNodes() - returns all the nodes in the graph
 public HashMap<GraphNode<T>, Integer> getNeighbors(GraphNode<T> node) - returns a hashmap of neighbor nodes and weights for a given node
 public int size() - returns the number of nodes in the graph
 
-</mnt/c/Users/Kamit/codefellows/401/data-structures-and-algorithms/challenge401/src/main/java/datastructures/graph/assets/Untitled presentation (2).jpg>
