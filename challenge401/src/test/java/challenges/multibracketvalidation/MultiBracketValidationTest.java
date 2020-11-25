@@ -2,28 +2,18 @@ package challenges.multibracketvalidation;
 
 
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class MultiBracketValidationTest {
-
-    @Test
-    public void testMultiBracketValidationBasic() {
-        assertFalse(MultiBracketValidation.multiBracketValidation("([]"));
-        assertFalse(MultiBracketValidation.multiBracketValidation("([]{)}"));
-        assertTrue(MultiBracketValidation.multiBracketValidation("()[]{}"));
-        assertTrue(MultiBracketValidation.multiBracketValidation("({}[]){}"));
-        assertFalse(MultiBracketValidation.multiBracketValidation("([]}"));
-
-
+    @Test public void testMultiBracketValidation() {
+        assertTrue("should return true when all brackets formatted well", MultiBracketValidation.multiBracketValidation("{[()]()}{}[]"));
+        assertFalse("should return false when brackets out of order", MultiBracketValidation.multiBracketValidation("{[}]"));
+        assertFalse("should return false when bracket never closed", MultiBracketValidation.multiBracketValidation("({[]}"));
+        assertTrue("should return true when bracket format is good with extra letters", MultiBracketValidation.multiBracketValidation("{sdf[sdfd]fsdfs}"));
+        assertFalse("should return false when bracket format bad with extra letters", MultiBracketValidation.multiBracketValidation("{sdf[sdfd]fsdfs"));
+        assertTrue("should return true when string is empty", MultiBracketValidation.multiBracketValidation(""));
     }
 
-    @Test
-    public void testMultiBracketValidationWithOtherCharacters() {
-        assertTrue(MultiBracketValidation.multiBracketValidation("(hi)[this]{fine}"));
-        assertTrue(MultiBracketValidation.multiBracketValidation("(mi{good}[nice]ce){legit}"));
-        assertFalse(MultiBracketValidation.multiBracketValidation("(not[ok]ok}"));
-        assertFalse(MultiBracketValidation.multiBracketValidation("(we[are]{at)home}"));
-        assertFalse(MultiBracketValidation.multiBracketValidation("(where[is]the school?"));
-    }
 }
-
