@@ -7,4 +7,4 @@ The approach for this was to use a for loop that begins at the 2nd value in the 
 
 
 #### Solution
-![]/mnt/c/Users/Kamit/codefellows/401/data-structures-and-algorithms/insertionsort/assets/codeChallenge26.PNG
+![](assets/codeChallenge26.PNG)
