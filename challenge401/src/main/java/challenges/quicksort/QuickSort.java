@@ -1,55 +1,38 @@
 package challenges.quicksort;
 
-import java.util.Stack;
-
 public class QuickSort {
-
-    // Method to be called, simply takes the array, calls pivot on it once, then uses the helper
-    public static void quickSort(int[] nums) {
-        int pivotIdx = pivot(nums, 0, nums.length -1);
-        quickSortHelper(nums, 0, pivotIdx - 1);
-        quickSortHelper(nums, pivotIdx + 1, nums.length - 1);
-
-    }
-
-    //Helper for the quickSort method. Takes in the original array, and what indexes within that array to work with
-    //Will pivot the entire sub-array if it has more than 1 value, and then break it up again
-    static void quickSortHelper(int[] nums, int start, int end) {
-        if (end - start < 1) {
-            return;
-        } else {
-            int pivotIdx = pivot(nums, start, end);
-            quickSortHelper(nums, start, pivotIdx - 1);
-            quickSortHelper(nums, pivotIdx + 1, end);
+    public static void quickSort(int[] arr) {
+        if (arr.length > 1) {
+            quickSort(arr, 0, arr.length - 1);
         }
     }
 
-    //Takes in the entire array, and what indexes to perform the pivoting on. The pivot value is always the element at start
-    //Will sort numbers into stacks based on if they are lower or higher, and then re-arrange the array in that range
-    //Returns the index that the pivot value was placed at
-    static int pivot(int[] nums, int start, int end) {
-        int pivot = nums[start];
-        int pivotIdx = start;
-        Stack<Integer> lows = new Stack<>();
-        Stack<Integer> highs = new Stack<>();
+    private static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int position = partition(arr, left, right);
+            quickSort(arr, left, position - 1);
+            quickSort(arr, position + 1, right);
+        }
+    }
 
-        for (int i = start + 1; i <= end; i++) {
-            if (pivot > nums[i]) {
-                lows.push(nums[i]);
-            } else {
-                highs.push(nums[i]);
+    private static int partition(int[] arr, int left, int right) {
+        int pivot = arr[right];
+        int low = left - 1;
+        for (int i = left; i < right; i++) {
+            if (arr[i] <= pivot) {
+                low++;
+                swap(arr, i, low);
             }
         }
+        swap(arr, right, low + 1);
+        return low + 1;
+    }
 
-        for (int i = start; i < end; i++) {
-            if (lows.peek() != null) {
-                nums[i] = lows.pop();
-                pivotIdx++;
-            } else {
-                nums[i + 1] = highs.pop();
-            }
-        }
-        nums[pivotIdx] = pivot;
-        return pivotIdx;
+    private static void swap(int[] arr, int i, int low) {
+        int temp = arr[i];
+        arr[i] = arr[low];
+        arr[low] = temp;
     }
 }
+
+
