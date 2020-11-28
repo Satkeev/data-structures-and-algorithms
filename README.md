@@ -1,11 +1,15 @@
 # data-structures-and-algorithms
 
-#### Array Reverse
+![Array Reverse](challenge401/src/main/java/challenges/ArrayReverse)
 Challenge
 Write a function that takes an array as an argument and returns an array that is the reverse of the original.
 
 Approach and Efficiency
 The approach used for this challenge was using nested for loops to start from the end of the array and move one item to it's reveresed position each iteration. I'm not sure how to calculate efficiency based on Big O yet.
+
+![img](assets/Screenshot%202020-09-14%20204733.png)
+
+
 
 #### Array Shift
 Challenge
