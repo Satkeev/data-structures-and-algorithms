@@ -180,6 +180,105 @@ The usefulness of maintaining the state of the queue all with the enqueue method
 ![img](/challenge401/assets/aww-board.png)
 
 
+[FIFO animal shelter](/challenge401/src/main/java/challenges/utilities/AnimalShelter.java)
+
+
+### Challenge Description
+Create an AnimalShelter class that operates like a queue. Its enqueue method should take in an animal that can be either a dog or cat and add it to the shelter queue. Its dequeue method should take in a preference of dog or cat and return the dog or cat that has spent the longest time in the shelter.
+
+### Approach & Efficiency
+In order to add and return animals, I started by building the Animal super class. Then created subclasses of Dog and Cat. Each dog and cat carries a type identifier field.
+
+For the animal shelter, I used a singly-linked list structure with nodes that store the Animal class as a value. The enqueue method adds Animals nodes at the back of the queue unless its empty, in which case it gets added to the front.
+
+The dequeue method immediately returns null if the shelter is empty or the preference given is not "cat" or "dog". Otherwise, it recursively checks nodes for a match to preference and returns that object. If it does find the object, it also links the previous node to the following node in order to maintain the queue order. if it doesn't find a match to the preference given, then passes a null to the top and returns it.
+
+### Time Efficiency:
+
+enqueue : O(1)
+dequeue : O(n)
+Space Efficiency:
+
+enqueue : O(1)
+dequeue : O(1)
+
+![img](/challenge401/src/main/java/challenges/utilities/assets/Screenshot%202020-11-24%20161726.png)
+
+
+[MultibracketValidation](/challenge401/src/main/java/challenges/multibracketvalidation)
+
+#### Challenge 13
+Write a method named multiBracketValidation that, given a string, returns true or false if that string has balanced brackets ie: (){[]} returns true but ({[)]} returns false.
+
+#### Approach and Efficiency
+The approach for this challenge was to use a stack to track every instance of an opening bracket found, as they will then need to be closed in a last-in first-out order. Whenever a closing bracket is found, the top value from the stack of opening brackets is popped to see what type of closing bracket should be expected. If a closing bracket does not match to what it should be, or the stack is not empty after iterating through the entire string, the method will return false. This method has a Big O time and space efficiency of O(n) due to the need of creating a stack to track all opening brackets and having to iterate over every character in the string.
+
+![img](/challenge401/src/main/java/challenges/multibracketvalidation/assets/Screenshot%202020-09-30%20144340.png)
+
+
+[BinaryTree](/challenge401/src/main/java/datastructures/BinaryTree)
+
+Challenge
+Create binary tree and binary search tree classes. The binary tree class should have methods for retrieving all values from the tree in pre-order, in-order, and post-order formats. The binary search tree should extend those methods and also include the ability to add a value and check if a value is contained in the tree.
+
+Approach & Efficiency
+For an underlying structure, I created a Node class that carries a value and points at its left and right children. And a Tree class that points to its root node.
+
+The BinaryTree class extends the Tree class and adds methods for searching a binary tree structure. They preOrder() method walks the left nodes then right nodes and returns an array with values in the order they are first encountered. The inOrder() method walks the tree left to right and returns an array with values ordered left to right. The postOrder() method walks the tree left to right and returns an array prioritizing child node values first.
+
+The BinarySearchTree class extends the BinaryTree class and adds methods to add values and check if a value exists in the tree. The add() method checks the value against each node recursively and looks for an empty space to create a new node with that value such that it is greater than all nodes left of it and less than all nodes right of it. If the value is already in the tree, it throws an exception expressing that. The contains() method recursively searches the tree for the value given by checking that value relative to each node and choosing to search left or right. It returns boolean true if it is found and false if it is not.
+
+Time Efficiency:
+
+preOrder : O(n)
+inOrder : O(n)
+postOrder : O(n)
+add : O(h) (where h is the height of the tree)
+contains : O(h)
+Space Efficiency:
+
+preOrder : O(h)
+inOrder : O(h)
+postOrder : O(h)
+add : O(h)
+contains : O(h)
+API
+preOrder : Takes in a Node and an empty Integer ArrayList and returns an Integer ArrayList including all values in the tree.
+inOrder : Takes in a Node and an empty Integer ArrayList and returns an Integer ArrayList including all values in the tree.
+postOrder : Takes in a Node and an empty Integer ArrayList and returns an Integer ArrayList including all values in the tree.
+add : Takes in an Integer and adds it to the tree in sorted order. Throws an Exception if the value already exists in the tree.
+contains : Takes in an Integer and returns true if it is in the tree, false if not.
+
+[BreadthFirst](/challenge401/src/main/java/datastructures/breadthfirst)
+
+
+#### Breadth First Graph
+This is the implementation of a Breadth First Traversal in a graph in Java
+
+#### Challenge Description
+The graph data structure will have a new method:
+The approach taken for this method was to utilize a List of Nodes to be returned, a Set of Nodes that had already been seen while traversing, and a Queue to maintain the order of traversal. Starting from the root, it is added to the Queue and the Set of seen Nodes. The algorithm then loops while the Queue is not empty, dequeuing the front value, adding it to the List to return, and then iterating over its list of neighbors. Each neighbor Node is checked to see if it's in the Set of already seen Nodes, and if it is not, then that Node is added to the queue and the Set of seen Nodes. Once the Queue is empty, the List of Nodes is returned. This solution takes both O(n) space and time, as it has to iterate over each Nodes neighbors, and utilize multiple other data structures to track all relevant information.
+
+#### breadthFirst
+Will traverse the Graph in a breadth first manner
+Approach & Efficiency
+breadthFirst() - O(n)
+
+![img](/challenge401/src/main/java/datastructures/breadthfirst/assets/aww-board12.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
