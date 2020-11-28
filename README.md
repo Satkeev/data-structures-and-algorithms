@@ -177,7 +177,9 @@ The approach for this challenge was to maintain the queues state in one primary 
 
 The usefulness of maintaining the state of the queue all with the enqueue method means that the dequeue method simply just has to pop the top value from the primary stack and return in, giving it O(1) time and space efficiency.
 
-![img](/challenge401/src/main/java/datastructures/stacksandqueues/aww-board (2).png)
+![img](/challenge401/assets/aww-board520(2).png)
+
+
 
 
 
