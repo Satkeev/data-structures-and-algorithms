@@ -43,6 +43,7 @@ Space: O(1)
 ![img](/challenge401/assets/Screenshot%202020-11-27%20182031.png)
 
 
+
 [Linked List](/challenge401/src/main/java/datastructures/linkedlist)
 
 A library for the Linked List data type.
@@ -108,6 +109,24 @@ zipLists : Static method takes in 2 LinkedList instances and returns 1 LinkedLis
 ![Linked List](/challenge401/src/main/java/datastructures/linkedlist/assets/Screenshot%202020-11-23%20215926.png)
 ![Linked List kthFromEnd](/challenge401/src/main/java/datastructures/linkedlist/assets/Screenshot%202020-11-23%20221342.png/)
 ![Linked List zipList](/challenge401/src/main/java/datastructures/linkedlist/assets/Screenshot%202020-11-23%20223353.png)
+
+
+
+
+
+[Repeated Word](/challenge401/src/main/java/datastructures/repeatedword)
+
+#### Challenge 31
+
+Write a method that takes in a String and returns the first repeated word in that String, without utilizing any of the built-in library methods available to your language,
+
+#### Approach and Efficiency
+
+The approach for this was to iterate over every character in the String and look for when the current character was a space, comma, or period (could include more punctuation cases). After that, there is a check to handle not including punctuation when grabbing a word, and then the last word that occurred before that space, period, or comma is grabbed, and checked if it's in the HashSet. If it is, that word is immediately returned, as we want to return the first instance that condition is true. If it is not in the Set, then the word is added to the set and the loop continues. This solution takes O(n) time and space. 
+
+#### Solution
+![img](/challenge401/src/main/java/datastructures/repeatedword/assets/aww-board%209.png)
+
 
 
 [Stacks and Queues](/challenge401/src/main/java/datastructures/stacksandqueues)
@@ -249,6 +268,91 @@ postOrder : Takes in a Node and an empty Integer ArrayList and returns an Intege
 add : Takes in an Integer and adds it to the tree in sorted order. Throws an Exception if the value already exists in the tree.
 contains : Takes in an Integer and returns true if it is in the tree, false if not.
 
+
+#### Challenge
+
+[Breadth First Traversal](/challenge401/src/main/java/challenges/BreathFirst)
+
+Within the BinaryTree class, create a method that takes in a tree, and prints out the values of it Nodes via a breadth first traversal.
+
+#### Approach and Efficiency
+The approach used for this challenge was to utilize a queue, starting by enqueueing the root node and then dequeuing it, printing its value and enqueuing its children. This process is repeated for every Node in the tree, which will fill the queue level by level for all the Nodes in the tree. This method is O(n) for both time and space.
+
+![img](/challenge401/src/main/java/challenges/BreathFirst/assets/Screenshot%202020-10-08%20213405.png)
+
+
+### Challenge 18
+
+[FizzBuzz Tree](/challenge401/src/main/java/challenges/FizzBuzzTree)
+
+Create a class named FizzBuzzTree that contains a method named fizzBuzzTree. This method should take in a tree, and change the values of the nodes based on their current value. If the value is divisible by 3, the node's value should be changed to fizz. If the value is divisible by 5, the node's value should be changed to buzz. If the value is divisible by both 3 and 5, the node's value should be changed to fizzbuzz.
+
+#### Approach and Efficiency
+The approach for this method was to traverse the list in a post-order depth search, and check the nodes value to see which condition it meets (divisible by 3, divisible by 5, or both) and change its value as needed. This solution takes O(n) time as it has to traverse the entire tree recursively, and O(1) space
+
+![img](/challenge401/src/main/java/challenges/FizzBuzzTree/assets/aww-board%204.png)
+
+
+[Insertion Sort](/challenge401/src/main/java/challenges/insertionsort)
+
+#### Challenge
+Write a function for insertion sort that takes in an unsorted array and returns the array sorted using insertion sort.
+
+#### Approach and Efficiency
+The approach for this was to use a for loop that begins at the 2nd value in the array, and compare it to every value before it, while the next value is still greater than the current one being moved. Every time a value before the one being moved is greater than the one being moved, that larger value is shifted forward one index. Once the while loop within the for has been exited, the current value being moved is placed in the location it needs to go. This solution takes O(n^2) time to run, where the worst case is the input array is reverse ordered. As for space, the solution takes O(1) space, only needing a few int variables for tracking.
+
+#### Solution
+![img](/assets/codeChallenge26.PNG)
+
+
+[Merge sort](/challenge401/src/main/java/challenges/mergesort)
+
+#### Challenge 27
+
+Write a function that accepts an array of unsorted integers, and returns a sorted array by a recursive merge sort algorithm.
+
+#### Approach and Efficiency
+
+The approach for this was to utilize a merge function that merges two sorted arrays together, which gets called via the merge sort, and the two arrays being provided are the value returned from a recursive call into the mergeSort method. The base case for mergeSort to return at is when the input array contains 0 or 1 elements, at which point it will return that array. Merge is then first handled on two arrays of size 0 or 1, merging those values together. As the recursive call-stack begins to work its way back up, the two arrays being merged will increase in size, but each should already be sorted. Once the recursive call-stack has completed, the original call to the method will return a single array, sorted from lowest to highest. This method takes O(nlogn) time to run, as merge will take n time to merge all the provided elements together, and is called logn times to completely merge the array. The method takes O(n) space for operation, as the final merge will create a new array that is equal in size to the original array.
+
+#### Solution
+
+![img](/challenge401/src/main/java/challenges/mergesort/assets/aww-board%207.png)
+
+
+#### Challenge 28
+[Quick Sort](/challenge401/src/main/java/challenges/quicksort)
+
+Quick Sort is a sorting algorithm that operates by taking a value from the array, called the pivot, and using it as reference for a series of swaps. Any value lower than the pivot gets swapped into the lower portion of the array until all values are checked. Then the pivot is added at the end of the lower values. This results in all the values to the left of the pivot being lower than it and all values to the right are higher, meaning the pivot is exactly where it needs to be in the end. Then quick sort just needs to be run to the left and the right of the pivot recursively to finish the sort.
+
+
+#### Efficiency
+Time Efficiency: O(n2) - exponential
+
+It's possible for this algorithm to run in (nlogn) time
+Unfortunately, if the input is already sorted, this implementation reaches exponential time
+Space Efficiency: O(logn) - logarithmic
+
+While it looks like there will be more space used, the recursion depth is (logn)
+The stack will resolve its left route before entering its right route, maintaining a relative amount of space needed to the size of the input array
+
+
+
+
+[LeftJoin](/challenge401/src/main/java/datastructures/leftjoin)
+
+### Challenge 33
+
+Write a method that takes in two Hashtables and performs a left join on them. It should return a representation of that join in some sort of data structure
+
+
+#### Approach and Efficiency
+The approach for this was to create a 2d dimensional array with a size equal to that of the number of keys stored in the table. The inner arrays are each of size 3, as they only need to hold the key, and its value in the two tables. The method then iterates over each key in the first table, adding both the key and its value to the appropriate location in the 2d array. If the second table also contains that key, its value is added to the array as well, otherwise it is set to null. 
+This method takes O(n) time and space where n represents the total key/value pairings in the first table.
+
+![img](/challenge401/src/main/java/datastructures/leftjoin/assets/aww-board%2010.png)
+
+
 [BreadthFirst](/challenge401/src/main/java/datastructures/breadthfirst)
 
 
@@ -267,6 +371,123 @@ breadthFirst() - O(n)
 ![img](/challenge401/src/main/java/datastructures/breadthfirst/assets/aww-board12.png)
 
 
+[Depth First](/challenge401/src/main/java/datastructures/depthfirst)
+
+This is the implementation of a pre-order traversal for a graph in Java
+
+##### Challenge Description
+
+Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal. Without utilizing any of the built-in methods available to your language, return a collection of nodes in their pre-order depth-first traversal order.
+
+#### DepthFirst()
+
+Will take in an array of node values and return true or false if there exists a path along with the sum of edge weights.
+
+#### Approach & Efficiency
+DepthFirst():
+Time: O(n)
+Space: O(n*e)
+
+![img](/challenge401/src/main/java/datastructures/depthfirst/assets/aww-board%2013.png)
+
+
+[GetEdge](/challenge401/src/main/java/datastructures/getedge)
+
+#### Challenge 37
+Write a function which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available to your language, return whether the full trip is possible with direct flights, and how much it would cost.
+
+##### Approach and Efficiency
+The approach for this method was to first iterate over the graphs list of Nodes to find the node whose value matches the provided arrays value at index 0. This node is then the starting node, from where a set of nested for loops begins, starting at i = 1 and looking through the start nodes edges to find if any of its neighbors match the arrays value at index i. If a match is found, then the start node becomes that neighbor node, and the outer loop repeats. If at any point the method cannot find a direct connection to the next city, it will return 0, meaning the trip is not possible with direct flights. 
+The Time efficiency for this method is O(n * d) where d represents the degree of the graph. 
+This methods space efficiency is O(1), as it only ever needs an instance variable for one node and an integer for the cost.
+
+![img](/challenge401/src/main/java/datastructures/getedge/assets/Screenshot%202020-11-03%20234137.png)
+
+
+#### Challenge 35
+[Graph](/challenge401/src/main/java/datastructures/graph)
+
+This is the implementation of a graph in Java
+
+#### Challenge Description
+The graph data structure will contain the following methods:
+
+## AddNode
+Adds a new node to the graph
+Takes in the value of that node
+Returns the added node
+## AddEdge
+Adds a new edge between two nodes in the graph
+Include the ability to have a “weight”
+Takes in the two nodes to be connected by the edge
+Both nodes should already be in the Graph
+## GetNodes
+Returns all of the nodes in the graph as a collection (set, list, or similar)
+GetNeighbors
+Returns a collection of nodes connected to the given node
+Takes in a given node
+Include the weight of the connection in the returned collection
+## Size
+Returns the total number of nodes in the graph
+
+#### Approach & Efficiency
+addNode() - O(1)
+addEdge() - O(1)
+getNodes() - O(1)
+getNeighbors() - O(1)
+size() - O(1)
+
+#### API
+public GraphNode addNode(T value) - adds a new node to the graph
+public void addEdge(GraphNode<T> nodeA, GraphNode<T> nodeB, int weight) - adds an edge between two nodes in the graph along with the weight
+public ArrayList<GraphNode<T>> getNodes() - returns all the nodes in the graph
+public HashMap<GraphNode<T>, Integer> getNeighbors(GraphNode<T> node) - returns a hashmap of neighbor nodes and weights for a given node
+public int size() - returns the number of nodes in the graph
+
+
+![img](/challenge401/src/main/java/datastructures/graph/assets/challenge35.jpg)
+
+
+[HashTable](/challenge401/src/main/java/datastructures/hashtable)
+
+#### Challenge 30
+Create a Hashtable implementation that stores key/value pairs. It should include methods to add a key/value pair, get a value using a key, check if a key exists in the Hashtable, and an internal method to hash keys consistently.
+
+### Approach & Efficiency
+The base structure of this Hashtable implementation is a list of lists that each store nodes containing the key/value pairs. Anytime a key is added, it is passed through a protected hash method that converts the key into an index of the parent list. The child list at that index is checked for nodes that already contain the key, throwing an error if it is found. Otherwise, a new node is created with the given key and value and added to the child list.
+
+To retrieve a value with the get method, the first step is to pass the key given through the same hash method as was used in the add method. This leads to the same index in the parent list, at which point the child list at that index is checked for the key. If the key is found, then the value stored in the same node is returned. Otherwise, the get method throws an exception indicating that they key is not in the table.
+
+The contains method follows the same logical pattern as the get method: hashing and searching for a key. The method returns true if the key is found and false if not.
+
+Time efficiency is constant for initial use, but will very gradually increase with collisions (multiple nodes stored in the same child bucket).
+
+The space efficiency is also constant, but it's worth noting that the initial instance of this Hashtable will create a batch of lists.
+
+Time Efficiency:
+
+add : O(1)
+get : O(1)
+contains : O(1)
+Space Efficiency:
+
+add : O(1)
+get : O(1)
+contains : O(1)
+API
+Hashtable Methods:
+
+add
+takes in a string key and int value and stores them in the Hashtable
+if the key already exists in the table, throws an exception
+get
+takes in a string key and returns the stored int value paired with that key
+if they key does not exist in the hashtable, throws an error
+contains
+takes in a string key and checks if it exists in the hashtable
+returns true if the key exists, false if not
+
+![img](/challenge401/src/main/java/datastructures/hashtable/assets/Screenshot%202020-11-25%20115020.png)
 
 
 
