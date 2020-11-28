@@ -40,7 +40,8 @@ Time: O(log(n))
 Space: O(1)
 
 ### Whiteboard solution
-![img](assets/Screenshot%202020-11-23%20165151.png)
+![img](/assets/Screenshot%202020-11-23%20165151.png)
+
 
 
 
